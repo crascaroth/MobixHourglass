@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+
+    const HourGlassCreator = () => {
+        let inputValue = document.getElementById('SizeHourglass').value;
+        document.getElementById("HourglassDiv").innerHTML = inputValue;
+    }
+
+</script>
+
+<h1>My First JavaScript</h1>
+
+<input type="number" id="SizeHourglass" value=20 placeholder="HourGlass Size (min: 20)">
+<button type="button"
+onclick="HourGlassCreator()">
+Create HourGlass</button>
+
+<p id="HourglassDiv"></p>
+
+</body>
+</html> 
