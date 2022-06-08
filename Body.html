@@ -2,7 +2,7 @@
 <html>
 <body>
 
-    <h1>My First JavaScript</h1>
+    <h1>Mobix Project</h1>
 
     <input type="number" id="SizeHourglass" value=20 placeholder="HourGlass Size (min: 20)">
     <button type="button"
@@ -15,42 +15,59 @@
 
     const HourGlassCreator = () => {
         let N = document.getElementById('SizeHourglass').value;
-        let hourglassvar;
+        let hourglassvar='';
+        let k=N;
+        let L=0;
 
         if(N >= 20){
             //Even
             if(N%2 == 0){
 
             
-            for(i=0;i<=N;i++){
+            for(let i=0;i<N;i++){
                 //First Part Pyramid
-                if(i<N/2){
-                for(j=0;j<=N-4;j++){
-                    // let hourglassoutput = document.createElement("#")
-                    document.write("#")                        
+
+                //Spaces
+                // for (let j = 0; j < i; j++) {
+                //     hourglassvar += "\xA0";
+                // }
+               
+                for(let k = 0; k < N - i; k++){
                     
-                }
-                document.write("<br>")
-            }   
+                    hourglassvar += "#";                                      
+                                               
+                }   
+            hourglassvar +="<br>";
+
+            }
+            for(let i=0;i<=N;i++){
                 //Second Part Pyramid
-                else{
-                    // let hourglassoutput = document.createElement(" ")
-                    // document.body.appendChild(hourglassoutput)
-                    document.write("#")
-                }
+                
+                    //Spaces
+                    // for(let j = 1; j <= N - i; j++){
+                    //     hourglassvar += "\xA0";
+                    // }
+                    for (let j = 0; j < i; j++){
+                        hourglassvar += "#";
+                    }
+                   
+                    
+                    
+                
+                    hourglassvar +="<br>";
             }
            }
             //Odds
             else{
-                // let hourglassoutput = document.createElement(" ")
-                //     document.body.appendChild(hourglassoutput)   
-                document.write("#")
+                 
+                hourglassvar +="#";
             }
 
-        document.getElementById("HourglassDiv").innerHTML = inputValue;
+        document.getElementById("HourglassDiv").innerHTML = hourglassvar;
+        console.log(HourglassDiv)
         }
         else {
-        document.getElementById("HourglassDiv").innerHTML = "Size must be higher than 20"
+        document.getElementById("HourglassDiv").innerHTML = "Size must be higher than 20";
         }
     }
 
