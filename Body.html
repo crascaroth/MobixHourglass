@@ -9,59 +9,47 @@
     onclick="HourGlassCreator()">
     Create HourGlass</button>
     
-    <p id="HourglassDiv"></p>
+    <p id="HourglassDiv" style="text-align: center;"></p>
 
 <script>
 
     const HourGlassCreator = () => {
         let N = document.getElementById('SizeHourglass').value;
         let hourglassvar='';
-        let k=N;
         let L=0;
+        let i=0
 
         if(N >= 20){
-            //Even
-            if(N%2 == 0){
-
             
-            for(let i=0;i<N;i++){
-                //First Part Pyramid
+        for (i = 0; i < N; i++) {               
+                // UpsideDown pyramid
+                for (let k = 0; k < (N - i) * 2 - 1; k++) {
+                    hourglassvar += "#";
+                }
+                hourglassvar += "<br>";               
+        }
+        for (i=0;i<N;i++){
 
-                //Spaces
-                // for (let j = 0; j < i; j++) {
-                //     hourglassvar += "\xA0";
-                // }
-               
-                for(let k = 0; k < N - i; k++){
-                    
-                    hourglassvar += "#";                                      
-                                               
-                }   
-            hourglassvar +="<br>";
-
-            }
-            for(let i=0;i<=N;i++){
-                //Second Part Pyramid
-                
-                    //Spaces
-                    // for(let j = 1; j <= N - i; j++){
-                    //     hourglassvar += "\xA0";
-                    // }
-                    for (let j = 0; j < i; j++){
+            // Hollow pyramid
+            for (let k = 0; k <= (2 *i - 1); k++) {
+                    if(i == 1 || i == N) {
                         hourglassvar += "#";
                     }
-                   
-                    
-                    
-                
-                    hourglassvar +="<br>";
-            }
-           }
-            //Odds
-            else{
-                 
-                hourglassvar +="#";
-            }
+                    else {
+                        if(k == 0 || k == (2 * i - 2)) {
+                            hourglassvar += "#";
+                        }
+                        else {
+                            hourglassvar += "\xa0";
+                        }
+                    }
+                }
+                hourglassvar += "<br>";
+        }
+            //Last line
+        for (i=0;i<N;i++){
+            hourglassvar += "#";
+        }
 
         document.getElementById("HourglassDiv").innerHTML = hourglassvar;
         console.log(HourglassDiv)
